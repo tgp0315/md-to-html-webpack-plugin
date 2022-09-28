@@ -17,15 +17,15 @@ class MdToHtmlWebpackPlugin {
             const _mdContentArr = _mdContent.split('\n')
             const _htmlStr = compileHTML(_mdContentArr)
             console.log(_htmlStr)
-            // const _finalHTML = _templateHTML.replace(INNER_MARK, _htmlStr) 
-            // _assets[this.filename] = {
-            //     source() {
-            //         return _finalHTML
-            //     },
-            //     size() {
-            //         return _finalHTML.length
-            //     }
-            // }
+            const _finalHTML = _templateHTML.replace(INNER_MARK, _htmlStr)
+            _assets[this.filename] = {
+                source() {
+                    return _finalHTML
+                },
+                size() {
+                    return _finalHTML.length
+                }
+            }
         })
     }
 }
